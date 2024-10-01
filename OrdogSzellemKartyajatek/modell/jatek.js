@@ -10,15 +10,17 @@ export default class Jatek{
             this.felforditva.push(0);
         }
         this.visszaad="";
+        this.nyert=false;
         
     }
     
     felfordit(i) {
         let both = false;
-        if(!this.elvitte && i >= 0 && i<this.kartyak.length){ 
+        if(!this.nyert && !this.elvitte && i >= 0 && i<this.kartyak.length){ 
             this.felforditva[i]=1;
             this.elvitte = !this.kartyak[i];
-            both = !this.elvitte;
+            this.nyert = this.vizsgal();
+            both = !this.elvitte && !this.nyert;
         }
         return both;  
     }
@@ -34,12 +36,12 @@ export default class Jatek{
     vizsgal(){
         this.both = true;
         for(let i = 0; i<this.kartyak.length && this.both; i++){
-            this.both = (this.kartyak[i] ^ this.felforditva);
+            this.both = !(this.kartyak[i] ^ this.felforditva[i]);
         }
         return this.both;
     }
 
     getGyozelem(){
-        return !this.elvitte && this.vizsgal;
+        return !this.elvitte && this.nyert;
     }
 }
