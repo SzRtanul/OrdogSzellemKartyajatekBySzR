@@ -1,28 +1,47 @@
-export default Jatek;
-class Jatek{
+export default class Jatek{
     events = [];
     constructor(){
-        //this.
+        this.elvitte=false;
         this.kartyak = [];
         this.felforditva = [];
         this.irasok=["Elvitt az ördög", "Megmentett a jó lélek"];
         for(let i = 0; i<20; i++){
-            kartyak.push((Math.random()*10) > 2 ? 1 : 0);
+            this.kartyak.push((Math.random()*10) > 2 ? 1 : 0);
             this.felforditva.push(0);
         }
+        this.visszaad="";
+        this.nyert=false;
+        
     }
     
     felfordit(i) {
-        if(i>=0 && i<this.kartyak.length) this.felforditva=1;
-        return i>=0 && i<this.kartyak.length ? this.irasok[this.kartyak[i]] : "Ez a kártya nem létezik";  
-    }
-
-    GetKartyak(){
-        let visszaad = [];
-        for(let i = 0; i<this.kartyak.length; i++){
-            visszaad.push(this.felforditva ? this.irasok[this.kartyak[i]] : "")
+        let both = false;
+        if(!this.nyert && !this.elvitte && i >= 0 && i<this.kartyak.length){ 
+            this.felforditva[i]=1;
+            this.elvitte = !this.kartyak[i];
+            this.nyert = this.vizsgal();
+            both = !this.elvitte && !this.nyert;
         }
-        return visszaad;
+        return both;  
     }
 
+    getKartyak(){
+        this.visszaad = [];
+        for(let i = 0; i<this.kartyak.length; i++){
+            this.visszaad.push(!this.felforditva[i] ? this.irasok[this.kartyak[i]] : "")
+        }
+        return this.visszaad;
+    }
+
+    vizsgal(){
+        this.both = true;
+        for(let i = 0; i<this.kartyak.length && this.both; i++){
+            this.both = !(this.kartyak[i] ^ this.felforditva[i]);
+        }
+        return this.both;
+    }
+
+    getGyozelem(){
+        return !this.elvitte && this.nyert;
+    }
 }
