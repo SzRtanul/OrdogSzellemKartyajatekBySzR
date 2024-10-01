@@ -1,15 +1,17 @@
 import Sablons from "../view/sablons.js";
 import Jatek from "../modell/jatek.js";
 
+let jatek = new Jatek();
+
 main();
 
 function main(){
-    let jatek = new Jatek();
+    
     let sablons = new Sablons();
-    update(jatek, sablons)
+    kezd(sablons)
 }
 
-function update(jatek, sablons){
+function kezd(sablons){
     let jatekterek = document.getElementsByClassName("jatekter");
     
     for(let i = 0; i < jatekterek.length; i++){
@@ -18,15 +20,19 @@ function update(jatek, sablons){
 
     for(let i = 0; i < jatekterek.length; i++){
         let kartyak = jatekterek[i].getElementsByClassName("kartya");
-        for(let i = 0; i < kartyak.length; i++){
-            kartyak[i].addEventListener("click", function(){ 
-                if(!jatek.felfordit(i)){
+        for(let j = 0; j < kartyak.length; j++){
+            kartyak[j].addEventListener("click", function(event){ 
+                // console.log(j)
+                if(!jatek.felfordit(j)){
                     let eredmenypalettak= document.getElementsByClassName("eredmeny");
-                    for(let i = 0; i<eredmenypalettak.length; i++){
-                        eredmenypalettak[i].innerHTML=jatek.getGyozelem() ? "Gratulálok! Megmentett a jó lélek." : "A játék véget ért. Elvitt az ördög.";
+                    for(let k = 0; k<eredmenypalettak.length; k++){
+                        eredmenypalettak[k].innerHTML=jatek.getGyozelem() ? "Gratulálok! Megmentett a jó lélek." : "A játék véget ért. Elvitt az ördög.";
                     }
-                } 
-                update(jatek, sablons);})
+                }
+                event.target.innerHTML = jatek.getKartya(j);
+                event.target.classList.add("kartyaeffect");
+                event.target.style.setProperty("rotate", `${-0.3*j}deg`);
+            });
         }
     }
 }

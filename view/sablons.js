@@ -6,8 +6,8 @@ export default class Sablons{
     jatekter(kartyalista = []){
         this.visszaad = "";
         for(let i = 0; i < kartyalista.length; i++){
-            this.visszaad += `<button class="kartya" style="transform: rotate(${(4*i)-53}deg); transform-origin: bottom left; "><p>${kartyalista[i]}</p></button>`;
-            console.log()
+            this.visszaad += `<button class="kartya" style="rotate: ${(4*i)-53}deg; transform-origin: bottom left; "><p>${kartyalista[i]}</p></button>`;
+            //
         }
         return this.visszaad;
     }

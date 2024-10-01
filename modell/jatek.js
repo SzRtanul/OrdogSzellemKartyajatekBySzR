@@ -25,13 +25,19 @@ export default class Jatek{
         return both;  
     }
 
+    getKartya(i, ell=true){
+        return (!ell || (i>=0 && i<this.kartyak.length)) && this.felforditva[i] ? this.irasok[this.kartyak[i]] : "";
+    }
+
     getKartyak(){
         this.visszaad = [];
         for(let i = 0; i<this.kartyak.length; i++){
-            this.visszaad.push(!this.felforditva[i] ? this.irasok[this.kartyak[i]] : "")
+            this.visszaad.push(this.getKartya(i, false));
         }
         return this.visszaad;
     }
+
+
 
     vizsgal(){
         this.both = true;

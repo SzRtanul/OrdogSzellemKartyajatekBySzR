@@ -4,30 +4,36 @@
     border: 1px solid black;
     border-radius: 5px;
     background-color: orange;
-    
     position: absolute; 
     left: 600px;
     bottom: 600px;
+    
+    /* 
+    animation-name: atmegy;
+    animation-duration: 0.3s;
+    animation-play-state: paused;
+    */
 
 /*
     width: 100px;
     height: 100px;
 */
-    background-color: red;
-    animation-name: example;
-    animation-duration: 4s;
-    animation-play-state: paused; 
+  /*  background-color: red;
+    
+    animation-play-state: paused; */
 }
 
+
+
 .jatekter{
-    /*display: grid;
+   /* display: grid;
     grid-template-columns: repeat(5, 1fr);*/
 }
 
 @media only screen and (max-width: 600px){
     .jatekter{
-        display: flex;
-        flex-wrap: wrap;
+        /*display: flex;
+        flex-wrap: wrap;*/
     }
 }
 
@@ -35,8 +41,34 @@
     from {background-color: red;}
     to {background-color: yellow;}
 }
+
+@keyframes osszetett {
+    0%   {background-color:red; left:0px; top:0px;}
+    25%  {background-color:yellow; left:200px; top:0px;}
+    50%  {background-color:blue; left:200px; top:200px;}
+    75%  {background-color:green; left:0px; top:200px;}
+    100% {background-color:red; left:0px; top:0px;}
+  }
+
+  @keyframes atmegy {
+    from   {left:600px; bottom:600px;}
+    to  {left:200px; bottom:0px; /*rotate: 0deg;*/}
+  }
   
   /* The element to apply the animation to */
 .kartya:hover {
+    /*
     animation-play-state: running;
+    bottom: 610px;
+    */
+}
+
+.kartyareset{
+}
+
+.kartyaeffect{
+    animation-name: atmegy;
+    animation-duration: 0.3s;
+    animation-play-state: running;
+    animation-fill-mode: forwards;
 }
