@@ -7,6 +7,7 @@
     <meta name="author" content="Szabó Roland">    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Szabó Roland - Ördög-Szellem kártyajáték</title>
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
     <div class="jatekter">

@@ -1,14 +1,17 @@
-export default Sablons;
-class Sablons{
+export default class Sablons{
     constructor(){
-        this.kk="";
+        this.visszaad="";
     }
 
     jatekter(kartyalista = []){
-        let visszaad = "";
+        this.visszaad = "";
         for(let i = 0; i < kartyalista.length; i++){
-            visszaad += `<button class="kartya"><p>${kartyalista[i]}</p></button>`;
+            this.visszaad += `<button class="kartya"><p>${kartyalista[i]}</p></button>`;
         }
-        return visszaad;
+        return this.visszaad;
+    }
+
+    eredmeny(szoveg=""){
+        this.visszaad=`<p>${szoveg}</p>`;
     }
 }
