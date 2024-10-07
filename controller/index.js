@@ -31,7 +31,12 @@ function kezd(sablons){
                 }
                 event.target.innerHTML = jatek.getKartya(j);
                 event.target.classList.add("kartyaeffect");
-                event.target.style.setProperty("rotate", `${-0.3*j}deg`);
+                //event.target.style.setProperty("rotate", `${0}deg`);
+                // event.target.style.setProperty("rotate", `${-0.3*j}deg`);
+                // event.target.style.setProperty("rotate", `1 0 30 ${60}deg`);
+                //event.target.style.setProperty("transform", `rotate3d(0, 0, 1, 90deg) rotate3d(1, 1, 0,30deg)`);
+                //event.target.style.setProperty("left", `${200-1*j}px`);
+                //event.target.style.setProperty("bottom", `${100+1*j}px`);
             });
         }
     }

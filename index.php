@@ -16,6 +16,22 @@
     <div class="eredmeny">
         
     </div>
+
+    <div class="y">
+    <div class="x">
+      <div class="y">
+        <div class="x">
+          <div class="y">
+            <div class="x">
+              <div class="y result">
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
     <script src="controller/index.js" type="module"></script>
 </body>
 </html>
